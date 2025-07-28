@@ -21,26 +21,33 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const defaultAdmin = {
-      username: 'admin',
-      password: 'admin123',
-      role: 'admin',
-      functionalities: ['Dashboard', 'Users', 'Settings', 'Reports', 'User Management'],
-      active: true
-    };
+  const defaultAdmin = {
+    username: 'admin',
+    password: 'admin123',
+    role: 'admin',
+    functionalities: ['Dashboard', 'Users', 'Settings', 'Reports', 'User Management'],
+    active: true
+  };
 
-    let users = JSON.parse(localStorage.getItem('appUsers') || '[]');
+  //Load users
+  let users = JSON.parse(localStorage.getItem('appUsers') || '[]');
 
-    const adminExists = users.some((u: any) => u.username === 'admin' && u.role === 'admin');
-    if (!adminExists) {
-      users.unshift(defaultAdmin);
-      localStorage.setItem('appUsers', JSON.stringify(users));
-    }
-
-    this.usernames = users
-      .filter((u: any) => u.active)
-      .map((u: any) => ({ label: u.username, value: u.username }));
+  //If admin doesn't exist, add
+  const adminExists = users.some((u: any) => u.username === 'admin' && u.role === 'admin');
+  if (!adminExists) {
+    users.unshift(defaultAdmin);
+    localStorage.setItem('appUsers', JSON.stringify(users));
   }
+
+  //Re-fetch updated list from localStorage
+  users = JSON.parse(localStorage.getItem('appUsers') || '[]');
+
+  //Prepare dropdown list
+  this.usernames = users
+    .filter((u: any) => u.active)
+    .map((u: any) => ({ label: u.username, value: u.username }));
+}
+
 
   login() {
     if (!this.selectedUser || !this.enteredPassword) {
