@@ -1,0 +1,145 @@
+<!-- Add User Button -->
+<div class="p-mb-3" *ngIf="!displayAddForm">
+  <button
+    pButton
+    label="Add User"
+    icon="pi pi-plus"
+    class="p-button-success"
+    (click)="displayAddForm = true"
+  ></button>
+</div>
+
+<!-- Add/Edit User Form -->
+<div *ngIf="displayAddForm" class="p-p-3 form-section">
+  <h4>{{ editingIndex > -1 ? 'Edit User' : 'Add New User' }}</h4>
+  <div class="p-fluid p-grid">
+    <div class="p-field p-col-12 p-md-4">
+      <label>Username</label>
+      <input pInputText [(ngModel)]="newUser.username" placeholder="Enter username" />
+    </div>
+
+    <div class="p-field p-col-12 p-md-4">
+      <label>Password</label>
+      <input
+        pInputText
+        type="password"
+        [(ngModel)]="newUser.password"
+        placeholder="Enter password"
+      />
+    </div>
+
+    <div class="p-field p-col-12 p-md-4">
+      <label>Role</label>
+      <input
+        pInputText
+        [(ngModel)]="newUser.role"
+        (input)="onRoleChange()"
+        placeholder="Enter or select role"
+        list="roleOptions"
+      />
+      <datalist id="roleOptions">
+        <option *ngFor="let r of roles" [value]="r"></option>
+      </datalist>
+    </div>
+
+    <div class="p-field p-col-12" *ngIf="roleFunctionalities.length">
+      <label>Assign Functionalities:</label>
+      <div class="p-grid">
+        <div *ngFor="let func of roleFunctionalities" class="p-col-6 p-md-4">
+          <p-checkbox
+            [label]="func"
+            [value]="func"
+            [(ngModel)]="newUser.functionalities"
+            [binary]="false"
+          ></p-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-field-checkbox p-mt-2 p-col-12">
+      <p-checkbox label="Active" [(ngModel)]="newUser.active" [binary]="true"></p-checkbox>
+    </div>
+
+    <div class="p-col-12 p-mt-2">
+      <button
+        pButton
+        label="{{ editingIndex > -1 ? 'Update' : 'Add' }}"
+        class="p-button-primary"
+        (click)="addUser()"
+      ></button>
+      <button
+        pButton
+        label="Cancel"
+        class="p-button-secondary"
+        (click)="resetForm()"
+        style="margin-left: 8px"
+      ></button>
+    </div>
+  </div>
+</div>
+
+<!-- Users Table -->
+<div *ngIf="!displayAddForm">
+  <p-table [value]="users" [paginator]="true" [rows]="5" [responsiveLayout]="'scroll'">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Functionalities</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user let-i="rowIndex">
+      <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{ user.functionalities.join(', ') }}</td>
+        <td>
+          <span
+            [ngClass]="{
+              'p-tag p-tag-success': user.active,
+              'p-tag p-tag-danger': !user.active
+            }"
+          >
+            {{ user.active ? 'Active' : 'Inactive' }}
+          </span>
+        </td>
+        <td>
+          <button
+            pButton
+            icon="pi pi-check-circle"
+            class="p-button-rounded p-button-sm p-button-success"
+            (click)="toggleStatus(i)"
+            style="margin-right: 5px"
+          ></button>
+          <button
+            pButton
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-sm p-button-warning"
+            (click)="editUser(i)"
+            style="margin-right: 5px"
+          ></button>
+          <button
+            pButton
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-sm p-button-danger"
+            (click)="deleteUser(i)"
+            style="margin-right: 5px"
+          ></button>
+          <button
+            pButton
+            icon="pi pi-copy"
+            class="p-button-rounded p-button-sm p-button-info"
+            (click)="copyUser(i)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<!-- Close Button -->
+<div class="p-mt-3 p-text-right">
+  <button pButton label="Close" class="p-button-secondary" (click)="close()"></button>
+</div>

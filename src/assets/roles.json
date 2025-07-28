@@ -1,0 +1,12 @@
+{
+  "roles": [
+    {
+      "name": "admin",
+      "functionalities": ["a", "b", "c", "d", "e", "f", "g"]
+    },
+    {
+      "name": "corps",
+      "functionalities": ["m", "n", "o", "p", "q"]
+    }
+  ]
+}

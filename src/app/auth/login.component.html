@@ -1,0 +1,29 @@
+<p-toast></p-toast>
+
+<div class="login-wrapper">
+  <div class="login-card">
+    <h2>Login</h2>
+
+    <p-dropdown [options]="usernames" [(ngModel)]="selectedUser" placeholder="Select Username" optionLabel="label"
+      optionValue="value" [style]="{ width: '100%', marginBottom: '1rem' }" class="p-inputtext"></p-dropdown>
+
+
+
+    <input
+      type="password"
+      [(ngModel)]="enteredPassword"
+      placeholder="Enter Password"
+      class="p-inputtext p-component"
+      style="width: 100%; margin-bottom: 1.5rem;"
+    />
+
+    <button
+      type="button"
+      pButton
+      label="Login"
+      class="p-button-primary"
+      style="width: 100%;"
+      (click)="login()">
+    </button>
+  </div>
+</div>

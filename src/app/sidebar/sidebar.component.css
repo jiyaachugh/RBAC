@@ -1,0 +1,74 @@
+.sidebar-wrapper {
+  background-color: #1e293b; /* slate-800 */
+  color: white;
+  width: 260px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Username header */
+.username-heading {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #cbd5e1; /* slate-300 */
+}
+
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Sidebar button styles */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  background-color: #334155; /* slate-700 */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  color: #e2e8f0; /* slate-200 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+}
+
+.sidebar-item:hover {
+  background-color: #475569; /* slate-600 */
+  color: #f8fafc; /* slate-50 */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon spacing */
+.sidebar-item i {
+  margin-right: 12px;
+  font-size: 1.1rem;
+}
+
+/* Logout button styled like other items but with a subtle variation */
+.logout-btn {
+  margin-top: auto;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background-color: #ef4444; /* red-500 */
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logout-btn:hover {
+  background-color: #dc2626; /* red-600 */
+}

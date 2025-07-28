@@ -1,0 +1,45 @@
+<div class="sidebar-wrapper">
+  <h3 class="username-heading">Welcome, {{ currentUsername }}</h3>
+
+  <ul class="sidebar-list">
+    <li 
+      *ngFor="let item of allowedItems" 
+      class="sidebar-item"
+      (click)="navigate(item.route, item.label)">
+      <i class="{{ item.icon }}"></i>
+      <span>{{ item.label }}</span>
+    </li>
+  </ul>
+
+  <button 
+    pButton 
+    class="p-button-sm p-button-danger logout-btn" 
+    label="Logout" 
+    (click)="logout()">
+  </button>
+
+  <!-- ✅ Clean Dialog -->
+  <p-dialog 
+    header="User Management Panel" 
+    [(visible)]="displayUserMgmtDialog" 
+    [modal]="true" 
+    [style]="{ width: '70vw' }" 
+    [contentStyle]="{ 'max-height': '70vh', 'overflow': 'auto' }"
+    [closable]="true"
+    (onHide)="closeUserMgmtDialog()">
+
+    <app-user-management></app-user-management>
+    
+  </p-dialog>
+
+  <p-dialog
+  header="Coming Soon"
+  [(visible)]="dummyDialogVisible"
+  [modal]="true"
+  [closable]="true"
+  (onHide)="closeDummyDialog()"
+  [style]="{ width: '400px' }">
+  <p>{{ dummyDialogText }}</p>
+</p-dialog>
+
+</div>

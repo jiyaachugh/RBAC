@@ -1,0 +1,44 @@
+[
+  {
+    "username": "admin1",
+    "password": "admin@123",
+    "role": "admin",
+    "functionalities": ["Dashboard", "Users", "Settings", "User Management", "Logs", "Support"],
+    "active": true
+  },
+  {
+    "username": "admin2",
+    "password": "admin2@123",
+    "role": "admin",
+    "functionalities": ["Dashboard", "Settings", "Logs"],
+    "active": true
+  },
+  {
+    "username": "editor1",
+    "password": "editor@123",
+    "role": "editor",
+    "functionalities": ["Dashboard", "Articles", "Reports"],
+    "active": true
+  },
+  {
+    "username": "editor2",
+    "password": "editor2@123",
+    "role": "editor",
+    "functionalities": ["Dashboard", "Articles", "Content Planner"],
+    "active": true
+  },
+  {
+    "username": "viewer1",
+    "password": "viewer@123",
+    "role": "viewer",
+    "functionalities": ["Dashboard", "Explore", "Reports"],
+    "active": true
+  },
+  {
+    "username": "viewer2",
+    "password": "viewer2@123",
+    "role": "viewer",
+    "functionalities": ["Dashboard", "Bookmarks", "Profile"],
+    "active": true
+  }
+]

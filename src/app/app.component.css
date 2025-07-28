@@ -1,0 +1,109 @@
+/* === Global Reset & Base Styling === */
+/* Global clean font and base */
+body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  color: #2c3e50;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+h3, h4 {
+  font-weight: 600;
+  color: #34495e;
+}
+
+/* Primeng Button Styling Override */
+.p-button {
+  border-radius: 8px !important;
+  padding: 0.5rem 1.2rem !important;
+  font-weight: bold !important;
+}
+
+/* Sidebar Styling */
+.sidebar-wrapper {
+  background-color: #2e3b4e;
+  color: #fff;
+  height: 100vh;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.username-heading {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background 0.3s;
+}
+
+.sidebar-item:hover {
+  background-color: #3b4a61;
+}
+
+.sidebar-item i {
+  margin-right: 10px;
+}
+
+.sidebar-item span {
+  font-size: 0.95rem;
+}
+
+/* Dialog Custom Styling */
+.p-dialog .p-dialog-content {
+  padding: 1.5rem !important;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.p-dialog .p-dialog-header {
+  font-size: 1.2rem;
+  background-color: #f1f1f1;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Table */
+.p-table td, .p-table th {
+  padding: 0.75rem !important;
+  font-size: 0.9rem;
+}
+
+/* Form Inputs */
+input.p-inputtext {
+  border-radius: 6px;
+  padding: 0.5rem !important;
+}
+
+/* Tags */
+.p-tag {
+  font-size: 0.75rem;
+  border-radius: 5px;
+}
+
+/* Button spacing */
+.p-button {
+  margin-bottom: 0.5rem;
+}
+
+.logout-btn {
+  margin-top: 2rem;
+  width: 100%;
+}
